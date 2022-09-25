@@ -1,10 +1,20 @@
-function sum(s : string) : string {
-
-    const sayHello : (name: string) => string = (a : string) : string => {
-        return `${a} desu`
-    }
-
-    return sayHello(s)
+interface Person {
+    name: string
+    age: number
 }
 
-console.log(sum('king oshino'))
+const person: Person = {
+    name: 'takenori',
+    age: 49,
+}
+
+interface SayHello {
+    (name: string): string
+}
+
+const a : SayHello = (take: string) => {
+    return `${take} nori`
+}
+
+console.log(person.age)
+console.log(a('pak'))
