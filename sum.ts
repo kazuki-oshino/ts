@@ -1,5 +1,10 @@
-function sum(a: number, b: number) {
-    return a + b + b
+function sum(s : string) : string {
+
+    const sayHello : (name: string) => string = (a : string) : string => {
+        return `${a} desu`
+    }
+
+    return sayHello(s)
 }
 
-console.log(sum(1,2))
+console.log(sum('king oshino'))
