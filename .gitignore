@@ -1,2 +1,5 @@
 # Project exclude paths
 /sum.js
+/node_modules
+package-lock.json
+/dist
