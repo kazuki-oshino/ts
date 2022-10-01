@@ -37,8 +37,7 @@ const gameTitles = ['hit and blow', 'janken'] as const
 type GameTitle = typeof gameTitles[number]
 
 type GameStore = {
-    'hit and blow': HitAndBlow
-    'janken': Janken
+    [key in GameTitle] : HitAndBlow | Janken
 }
 
 class GameProcedure {
@@ -84,6 +83,10 @@ class GameProcedure {
         process.exit()
     }
 }
+
+// abstract class Game {
+//
+// }
 
 class HitAndBlow {
     private readonly answerSource = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
