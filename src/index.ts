@@ -33,9 +33,17 @@ type Mode = typeof modes[number]
 const nextActions = ['play again', 'exit'] as const
 type NextAction = typeof nextActions[number]
 
+type GameStore = {
+    'hit and blow': HitAndBlow
+    'janken': Janken
+}
+
 class GameProcedure {
     private currentGameTitle = 'hit and blow'
     private currentGame = new HitAndBlow()
+
+    constructor(private readonly gameStore: GameStore) {
+    }
 
     public async start() {
         await this.play()
@@ -232,5 +240,8 @@ class Janken {
 }
 
 ;(async () => {
-    await new GameProcedure().start()
+    await new GameProcedure({
+        "hit and blow": new HitAndBlow(),
+        'janken': new Janken(),
+    }).start()
 })()
