@@ -50,7 +50,7 @@ class GameProcedure {
         const action = await promptSelect<NextAction>('ゲームを続けますか？ ', nextActions)
         if (action === 'play again') {
             await this.play()
-        } else if (action === ("exit")){
+        } else if (action === ("exit")) {
             this.end()
         } else {
             const neverValue: never = action
@@ -141,7 +141,12 @@ class HitAndBlow {
 
     end() {
         printLine(`正解です！\n試行回数: ${this.tryCount}回`)
-        process.exit()
+        this.reset()
+    }
+
+    private reset() {
+        this.answer = []
+        this.tryCount = 0
     }
 }
 
